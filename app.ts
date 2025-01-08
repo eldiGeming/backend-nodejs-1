@@ -2,6 +2,8 @@ import express, { Application } from 'express';
 import userRoutes from './routes/UserRoute';
 import bukuRoutes from './routes/BukuRoute';
 import dotenv from 'dotenv';
+import cors from 'cors';  // Cors akan dikenali sekarang
+
 
 // Load environment variables from .env file
 dotenv.config();
@@ -11,6 +13,8 @@ const PORT = process.env.PORT || 4000;
 
 // Middleware to parse JSON requests
 app.use(express.json());
+app.use(cors()); // Izinkan CORS
+
 
 // Routes
 app.use('/api', userRoutes);
